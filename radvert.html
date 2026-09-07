@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Anuncio - Salutta</title>
+<meta http-equiv="refresh" content="2; url=$(link-orig)">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="-1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="login.css">
+<style>
+.advert-card {
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    box-shadow: var(--shadow-card);
+    width: 100%;
+    max-width: 390px;
+    padding: 3.4rem 1.8rem 2rem 1.8rem;
+    text-align: center;
+    position: relative;
+    margin-top: 50px;
+    animation: fadeInCard 0.45s ease-out;
+}
+.advert-title {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--color-black);
+    margin-top: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+.advert-desc {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+}
+</style>
+<script language="JavaScript">
+<!--
+var popup = '';
+function openOrig() {
+    if (window.focus) popup.focus();
+    location.href = '$(link-orig)';
+}
+function openAd() {
+    location.href = '$(link-redirect)';
+}
+function openAdvert() {
+    if (window.name != 'hotspot_advert') {
+        popup = open('$(link-redirect)', 'hotspot_advert', '');
+        setTimeout("openOrig()", 1000);
+        return;
+    }
+    setTimeout("openAd()", 1000);
+}
+//-->
+</script>
+</head>
+
+<body onLoad="openAdvert()">
+
+<div class="main-container">
+    <div class="advert-card">
+        <div class="logo-container">
+            <img src="log.jpg" alt="Salutta Logo">
+        </div>
+
+        <div class="advert-title">Continuando Navegación</div>
+        <div class="advert-desc">
+            Si la página no abre automáticamente, pulse el botón a continuación:
+        </div>
+
+        <a class="btn-link" href="$(link-redirect)" target="hotspot_advert">
+            <button type="button" class="btn btn-login" style="margin-bottom:0;">
+                CONTINUAR
+            </button>
+        </a>
+
+        <p class="footer-text">SALUTTA</p>
+    </div>
+</div>
+
+</body>
+</html>

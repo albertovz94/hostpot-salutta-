@@ -1,0 +1,469 @@
+/* ==========================================================================
+   Hotspot Salutta - Estilos Principales y Responsive
+   Colores: #3A96A9 (Principal), #2D7A8A (Oscuro/Presionado), #5BB8C9 (Hover/Suave)
+   Tipografía: Osande
+   ========================================================================== */
+
+@font-face {
+    font-family: 'Osande';
+    src: url('Osande - Medium DEMO.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --primary: #3A96A9;
+    --primary-hover: #4ea8bb;
+    --primary-soft: #6ac0d1;
+    --primary-dark: #2D7A8A;
+    --primary-glow: rgba(58, 150, 169, 0.25);
+    --primary-ultralight: #eef7f9;
+    
+    --color-white: #ffffff;
+    --color-black: #111827;
+    --color-dark: #1f2937;
+    --color-gray-bg: #f8fafc;
+    --color-gray-border: #e2e8f0;
+    --color-text: #334155;
+    --color-text-muted: #64748b;
+    --color-error: #ef4444;
+    --color-error-bg: #fef2f2;
+    
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 24px;
+    
+    --shadow-card: 0 20px 40px -15px rgba(30, 64, 75, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.6);
+    --shadow-btn: 0 4px 14px 0 rgba(58, 150, 169, 0.35);
+    --shadow-btn-hover: 0 6px 20px rgba(58, 150, 169, 0.45);
+    --shadow-input-focus: 0 0 0 4px rgba(58, 150, 169, 0.18);
+    
+    --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Osande', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: var(--color-text);
+    background-color: #d6eef2;
+    background-image: 
+        linear-gradient(135deg, rgba(255, 255, 255, 0.76) 0%, rgba(220, 242, 246, 0.88) 100%),
+        url('backsalut.jpg');
+    background-repeat: repeat;
+    background-size: 320px;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 16px;
+    min-height: 100vh;
+}
+
+/* --- TARJETA DE LOGIN GLASSMORPHISM --- */
+.login-card {
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    width: 100%;
+    max-width: 390px;
+    padding: 3.4rem 2rem 2.2rem 2rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    box-shadow: var(--shadow-card);
+    text-align: center;
+    position: relative;
+    margin-top: 55px;
+    animation: fadeInCard 0.45s ease-out;
+}
+
+@keyframes fadeInCard {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- LOGO --- */
+.logo-container {
+    position: absolute;
+    top: -55px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 106px;
+    height: 106px;
+    background: var(--color-white);
+    border-radius: 50%;
+    border: 3.5px solid var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(58, 150, 169, 0.25), 0 0 0 4px rgba(255, 255, 255, 0.85);
+    z-index: 10;
+    overflow: hidden;
+    transition: var(--transition-fast);
+}
+
+.logo-container:hover {
+    transform: translateX(-50%) scale(1.03);
+    box-shadow: 0 12px 28px rgba(58, 150, 169, 0.35), 0 0 0 4px rgba(255, 255, 255, 0.9);
+}
+
+.logo-container img {
+    width: 82%;
+    height: 82%;
+    object-fit: contain;
+    display: block;
+}
+
+/* --- TÍTULO --- */
+h1 {
+    font-family: 'Osande', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--color-black);
+    font-weight: 500;
+    font-size: 1.65rem;
+    letter-spacing: -0.3px;
+    margin-top: 1.2rem;
+    margin-bottom: 1.8rem;
+    line-height: 1.25;
+}
+
+/* --- INPUTS --- */
+.input-group {
+    position: relative;
+    margin-bottom: 1.15rem;
+}
+
+.input-icon, .input-group i {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    pointer-events: none;
+    transition: var(--transition-fast);
+}
+
+.input-icon svg {
+    display: block;
+    stroke: var(--primary);
+    transition: var(--transition-fast);
+}
+
+.input-group input {
+    width: 100%;
+    min-height: 48px;
+    padding: 14px 16px 14px 48px;
+    background-color: var(--color-gray-bg);
+    border: 1.5px solid var(--color-gray-border);
+    border-radius: var(--radius-md);
+    font-family: 'Osande', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px; /* 16px previene auto-zoom molesto en Safari iOS */
+    color: var(--color-dark);
+    outline: none;
+    transition: var(--transition-fast);
+}
+
+.input-group input::placeholder {
+    color: var(--color-text-muted);
+    font-weight: 400;
+}
+
+.input-group input:focus {
+    background-color: var(--color-white);
+    border-color: var(--primary);
+    box-shadow: var(--shadow-input-focus);
+}
+
+.input-group:focus-within .input-icon svg,
+.input-group:focus-within i {
+    stroke: var(--primary-dark);
+    color: var(--primary-dark);
+    transform: scale(1.1);
+}
+
+/* --- BOTONES --- */
+.btn {
+    width: 100%;
+    min-height: 48px;
+    padding: 14px 18px;
+    border: none;
+    border-radius: var(--radius-md);
+    font-family: 'Osande', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.98rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0.9rem;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.icon-svg {
+    display: inline-block;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+/* Botón Ingresar (Color Principal #3A96A9) */
+.btn-login {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: var(--color-white);
+    box-shadow: var(--shadow-btn);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.btn-login:hover {
+    background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary) 100%);
+    box-shadow: var(--shadow-btn-hover);
+    transform: translateY(-1.5px);
+}
+
+.btn-login:active {
+    background: var(--primary-dark);
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 0 2px 8px rgba(45, 122, 138, 0.4);
+}
+
+/* Botón Acceso Clientes / Trial (Negro elegante) */
+.btn-trial {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.btn-trial:hover {
+    background-color: #2b3441;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+    transform: translateY(-1.5px);
+}
+
+.btn-trial:active {
+    background-color: #0b0f14;
+    transform: translateY(1px) scale(0.98);
+}
+
+.btn-link {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+}
+
+/* --- MENSAJES Y FOOTER --- */
+.error-msg {
+    background-color: var(--color-error-bg);
+    color: var(--color-error);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    padding: 11px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 0.88rem;
+    margin-top: 12px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 2px 6px rgba(239, 68, 68, 0.08);
+    animation: fadeInCard 0.3s ease;
+}
+
+.footer-text {
+    font-family: 'Osande', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--color-text-muted);
+    font-size: 0.82rem;
+    letter-spacing: 1px;
+    font-weight: 500;
+    margin-top: 1.6rem;
+    margin-bottom: 0;
+    text-transform: uppercase;
+}
+
+/* --- ESTILOS PARA STATUS & TABLAS --- */
+.tabula {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    margin: 15px auto;
+    background: var(--color-white);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--color-gray-border);
+}
+
+.tabula td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--color-gray-border);
+    font-size: 0.9rem;
+    color: var(--color-dark);
+}
+
+.tabula tr:last-child td {
+    border-bottom: none;
+}
+
+.tabula td:first-child {
+    font-weight: 500;
+    color: var(--color-text-muted);
+}
+
+#boton, input[type="submit"] {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: var(--color-white);
+    border: none;
+    min-height: 48px;
+    padding: 12px 24px;
+    border-radius: var(--radius-md);
+    font-family: 'Osande', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.95rem;
+    cursor: pointer;
+    box-shadow: var(--shadow-btn);
+    transition: var(--transition-fast);
+    touch-action: manipulation;
+}
+
+#boton:hover, input[type="submit"]:hover {
+    background: var(--primary-hover);
+    box-shadow: var(--shadow-btn-hover);
+    transform: translateY(-1px);
+}
+
+#boton:active, input[type="submit"]:active {
+    background: var(--primary-dark);
+    transform: translateY(1px);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (Móviles, Tablets y Orientación Landscape)
+   ========================================================================== */
+
+/* Móviles pequeños y medianos (<= 480px) */
+@media screen and (max-width: 480px) {
+    .main-container {
+        padding: 20px 12px;
+    }
+
+    .login-card {
+        padding: 3.2rem 1.4rem 1.8rem 1.4rem;
+        border-radius: 20px;
+        margin-top: 50px;
+    }
+
+    .logo-container {
+        width: 95px;
+        height: 95px;
+        top: -48px;
+        border-width: 3px;
+    }
+
+    h1 {
+        font-size: 1.45rem;
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .btn {
+        min-height: 46px;
+        font-size: 0.92rem;
+        padding: 12px 14px;
+    }
+
+    .input-group input {
+        min-height: 46px;
+        padding: 12px 14px 12px 44px;
+    }
+
+    .input-icon {
+        left: 14px;
+    }
+}
+
+/* Dispositivos muy compactos (<= 340px) */
+@media screen and (max-width: 340px) {
+    .main-container {
+        padding: 14px 8px;
+    }
+
+    .login-card {
+        padding: 2.8rem 1rem 1.4rem 1rem;
+        margin-top: 45px;
+    }
+
+    .logo-container {
+        width: 85px;
+        height: 85px;
+        top: -42px;
+    }
+
+    h1 {
+        font-size: 1.25rem;
+    }
+
+    .btn {
+        font-size: 0.86rem;
+        letter-spacing: 0.3px;
+    }
+}
+
+/* Orientación horizontal (Landscape) en móviles o pantallas de poca altura */
+@media screen and (max-height: 580px) {
+    body {
+        align-items: flex-start;
+    }
+
+    .main-container {
+        padding-top: 50px;
+        padding-bottom: 30px;
+        min-height: auto;
+    }
+
+    .login-card {
+        margin-top: 35px;
+        padding-top: 2.8rem;
+    }
+
+    .logo-container {
+        width: 75px;
+        height: 75px;
+        top: -38px;
+    }
+}

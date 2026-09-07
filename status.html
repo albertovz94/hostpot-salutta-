@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Estado de la conexión - Salutta</title>
+$(if refresh-timeout)
+<meta http-equiv="refresh" content="$(refresh-timeout-secs)">
+$(endif)
+
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="-1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="login.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+.status-card {
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    box-shadow: var(--shadow-card);
+    width: 100%;
+    max-width: 390px;
+    padding: 3.2rem 1.8rem 2rem 1.8rem;
+    text-align: center;
+    position: relative;
+    margin-top: 50px;
+    animation: fadeInCard 0.5s ease-out;
+}
+.greeting {
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--color-black);
+    margin-bottom: 1rem;
+}
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: #ecfdf5;
+    color: #059669;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    margin-bottom: 1.2rem;
+}
+.status-badge i {
+    font-size: 0.75rem;
+}
+</style>
+
+<script language="JavaScript">
+<!--
+$(if advert-pending == 'yes')
+    var popup = '';
+    function focusAdvert() {
+        if (window.focus) popup.focus();
+    }
+    function openAdvert() {
+        popup = open('$(link-advert)', 'hotspot_advert', '');
+        setTimeout("focusAdvert()", 1000);
+    }
+$(endif)
+    function openLogout() {
+        if (window.name != 'hotspot_status') return true;
+        open('$(link-logout)', 'hotspot_logout', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=280,height=250');
+        window.close();
+        return false;
+    }
+//-->
+</script>
+</head>
+<body
+$(if advert-pending == 'yes')
+    onLoad="openAdvert()"
+$(endif)
+>
+
+<div class="main-container">
+    <div class="status-card">
+        
+        <div class="logo-container">
+            <img src="log.jpg" alt="Salutta Logo">
+        </div>
+
+        <div class="status-badge">
+            <i class="fas fa-circle"></i> Conectado a la Red
+        </div>
+
+        $(if login-by == 'trial')
+            <div class="greeting">¡Hola, Usuario de prueba!</div>
+        $(elif login-by != 'mac')
+            <div class="greeting">¡Hola, $(username)!</div>
+        $(endif)
+
+        <form action="$(link-logout)" name="logout" onSubmit="return openLogout()">
+            <table class="tabula">
+                <tr>
+                    <td align="left"><i class="fas fa-network-wired" style="color:var(--primary); margin-right:6px;"></i> Dirección IP</td>
+                    <td align="right">$(ip)</td>
+                </tr>
+                <tr>
+                    <td align="left"><i class="fas fa-arrow-up-down" style="color:var(--primary); margin-right:6px;"></i> Subida / Bajada</td>
+                    <td align="right">$(bytes-in-nice) / $(bytes-out-nice)</td>
+                </tr>
+                $(if session-time-left)
+                <tr>
+                    <td align="left"><i class="fas fa-clock" style="color:var(--primary); margin-right:6px;"></i> Conectado / Restante</td>
+                    <td align="right">$(uptime) / $(session-time-left)</td>
+                </tr>
+                $(else)
+                <tr>
+                    <td align="left"><i class="fas fa-clock" style="color:var(--primary); margin-right:6px;"></i> Tiempo de sesión</td>
+                    <td align="right">$(uptime)</td>
+                </tr>
+                $(endif)
+                $(if blocked == 'yes')
+                <tr>
+                    <td align="left">Estado</td>
+                    <td align="right" style="color: var(--color-error)">
+                        <a href="$(link-advert)" target="hotspot_advert">Anuncio requerido</a>
+                    </td>
+                </tr>
+                $(elif refresh-timeout)
+                <tr>
+                    <td align="left">Actualización</td>
+                    <td align="right">$(refresh-timeout)</td>
+                </tr>
+                $(endif)
+            </table>
+
+            $(if login-by-mac != 'yes')
+            <div style="margin-top: 1.4rem;">
+                <button type="submit" id="boton" class="btn btn-login" style="margin-bottom:0;">
+                    <i class="fas fa-power-off"></i> Desconectar
+                </button>
+            </div>
+            $(endif)
+        </form>
+
+        <p class="footer-text">SALUTTA</p>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Conectando... &gt; Salutta</title>
+<meta http-equiv="refresh" content="2; url=https://www.instagram.com/saluttave/?hl=es">
+<meta http-equiv="pragma" content="no-cache">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="expires" content="-1">
+<link rel="stylesheet" href="login.css" type="text/css">
+<style>
+.loader {
+    margin: 40px auto;
+    font-size: 10px;
+    position: relative;
+    text-indent: -9999em;
+    border-top: 0.8em solid rgba(58, 150, 169, 0.2);
+    border-right: 0.8em solid rgba(58, 150, 169, 0.2);
+    border-bottom: 0.8em solid rgba(58, 150, 169, 0.2);
+    border-left: 0.8em solid #3A96A9;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation: load8 1.1s infinite linear;
+    animation: load8 1.1s infinite linear;
+    border-radius: 50%;
+    width: 6em;
+    height: 6em;
+}
+@-webkit-keyframes load8 {
+    0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@keyframes load8 {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.connect-box {
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 320px;
+    margin: auto;
+    box-shadow: 0 15px 35px rgba(30, 64, 75, 0.18);
+    text-align: center;
+}
+.connect-text {
+    font-size: 1.15rem;
+    color: #111827;
+    font-weight: 500;
+    margin-top: 15px;
+}
+.redirect-subtext {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-top: 8px;
+}
+</style>
+<script language="JavaScript">
+function startClock() {
+    $(if popup == 'true')
+    open('$(link-status)', 'hotspot_status', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=290');
+    $(endif)
+    location.href = 'https://www.instagram.com/saluttave/?hl=es';
+}
+</script>
+</head>
+<body onload="startClock()">
+<div class="main-container">
+    <div class="connect-box">
+        <div class="loader">Cargando...</div>
+        <div class="connect-text">Conectando a Internet</div>
+        <div class="redirect-subtext">Redirigiendo a Salutta...</div>
+    </div>
+</div>
+</body>
+</html>
